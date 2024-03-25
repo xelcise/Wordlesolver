@@ -18,8 +18,13 @@
     <div id="suggestion"></div>
 
     <script>
-        const wordList = ["abase", "abate", "abbey", /* Add more words here */ ];
-        let possibleWords = [...wordList]; // Clone the initial word list
+        let possibleWords = []; // Initialize empty array
+
+        async function loadWordList() {
+            const response = await fetch('URL_TO_YOUR_WORDLIST.txt');
+            const text = await response.text();
+            possibleWords = text.split('\n').map(word => word.trim()).filter(word => word.length === 5);
+        }
 
         function filterPossibleWords(guess, feedback) {
             return possibleWords.filter(word => {
@@ -54,6 +59,9 @@
             }
             document.getElementById('feedback').value = ""; // Reset feedback input
         }
+
+        // Load the word list when the page is loaded
+        window.onload = loadWordList;
     </script>
 </body>
 </html>
