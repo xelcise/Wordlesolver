@@ -5,8 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wordle Solver</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        input, button { margin-top: 10px; }
+        body { 
+            font-family: Arial, sans-serif; 
+            color: #000; /* Default text color for light mode */
+        }
+        input, button { 
+            margin-top: 10px; 
+        }
+
+        /* Dark mode styling */
+        @media (prefers-color-scheme: dark) {
+            body {
+                color: #fff; /* Light text color for dark mode */
+                background-color: #333; /* Dark background for contrast */
+            }
+            input, button {
+                color: #fff; /* Ensure input and button text is also light */
+                background-color: #555; /* Darker elements for contrast */
+                border: 1px solid #777; /* Lighter border for visibility */
+            }
+        }
     </style>
 </head>
 <body>
@@ -18,7 +36,9 @@
     <div id="suggestion"></div>
 
     <script>
-        let possibleWords = []; // Initialize empty array
+        
+
+let possibleWords = []; // Initialize empty array
 
         async function loadWordList() {
             const response = await fetch('https://github.com/xelcise/Wordlesolver/blob/3d7f70ad9ca924f734eb0744d61bbc374ca0e0ec/5LW.txt');
