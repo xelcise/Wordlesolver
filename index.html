@@ -21,7 +21,7 @@
         let possibleWords = []; // Initialize empty array
 
         async function loadWordList() {
-            const response = await fetch('5LW.txt');
+            const response = await fetch('https://github.com/xelcise/Wordlesolver/blob/3d7f70ad9ca924f734eb0744d61bbc374ca0e0ec/5LW.txt');
             const text = await response.text();
             possibleWords = text.split('\n').map(word => word.trim()).filter(word => word.length === 5);
         }
