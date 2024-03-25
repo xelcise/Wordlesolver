@@ -21,7 +21,7 @@
         let possibleWords = []; // Initialize empty array
 
         async function loadWordList() {
-            const response = await fetch('URL_TO_YOUR_WORDLIST.txt');
+            const response = await fetch('5WL.txt');
             const text = await response.text();
             possibleWords = text.split('\n').map(word => word.trim()).filter(word => word.length === 5);
         }
