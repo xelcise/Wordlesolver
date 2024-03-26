@@ -12,8 +12,8 @@
 <body>
     <h2>Wordle Solver</h2>
     <p>Enter your guess and feedback:</p>
-    <input type="text" id="guess" placeholder="Guess" value="arise" readonly>
-    <input type="text" id="feedback" placeholder="Feedback (e.g., XXGXX)">
+    <input type="text" id="guess" placeholder="Guess" value="ARISE" readonly>
+    <input type="text" id="feedback" placeholder="Feedback (e.g., XXGXX)"  onkeyup="this.value = this.value.toUpperCase();">
     <button onclick="processFeedback()">Submit</button>
     <div id="suggestion"></div>
 
